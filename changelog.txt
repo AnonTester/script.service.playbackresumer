@@ -1,3 +1,6 @@
+v2.0.3
+- fix error when skipping beyond end of file or to next item in playlist
+
 v2.0.2
 - Update for Matrix logging changes
 

@@ -408,7 +408,11 @@ class MyPlayer(xbmc.Player):
 
     def onPlayBackSeek(self, time, seekOffset):
         log("Playback seeked (time)")
-        updateResumePoint(self.getTime())
+        if self.isPlayingVideo():
+            updateResumePoint(self.getTime())
+        else:
+            #skip to next item in playlist or seek beyond end of media, resume point not necessary
+            updateResumePoint(-1)
 
     def onPlayBackSeekChapter(self, chapter):
         log("Playback seeked (chapter)")
